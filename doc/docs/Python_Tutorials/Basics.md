@@ -181,7 +181,7 @@ unix% h5ls ez.h5
 ez                       Dataset {161, 161, 330/Inf}
 ```
 
-That is, the file contains a single dataset `ez` that is a 162x162x330 array, where the last dimension is time. This is rather a large file, 69MB; later, we'll see ways to reduce this size if we only want images. We have a number of choices of how to output the fields. To output a single time slice, we can use the same `h5topng` command, but with an additional `-t` option to specify the time index: e.g. `h5topng -t 229` will output the last time slice, similar to before. Instead, let's create an animation of the fields as a function of time. First, we have to create images for *all* of the time slices:
+That is, the file contains a single dataset `ez` that is a 162x162x330 array, where the last dimension is time. This is rather a large file, 69MB; later, we'll see ways to reduce this size if we only want images. We have a number of choices of how to output the fields. To output a single time slice as a png image, we can use the `h5topng` command. The `-t` option specifies the time index: e.g. `h5topng -t 229` will output the last time slice. Instead, let's create an animation of the fields as a function of time. First, we have to create images for *all* of the time slices:
 
 ```sh
 unix% h5topng -t 0:329 -R -Zc dkbluered -a yarg -A eps-000000.00.h5 ez.h5
